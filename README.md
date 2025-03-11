@@ -9,9 +9,51 @@
 * 接收 POST 请求作为 Webhook 触发器
 * 允许发送纯文本或 HTML 格式的电子邮件
 * 配置灵活，支持多种 SMTP 服务器
-* 异步处理，提高性能和响应速度
+* 异步处理，提高性能和响应速度（todo）
 * 轻量，占用内存/存储低
 
+## Usage 使用方法
+
+
+### 启动 `Java Webhook Email Sender`
+
+```
+java -jar webhookemailsender-1.0.0.jar --spring.mail.username=your@gmail.com --spring.mail.password=your_password
+```
+
+其中，启动参数`your@gmail.com`、`your_password`改为你实际的发送者邮箱及密码。`spring.mail.username`和`spring.mail.password`也可以在项目的 application.properties 中进行配置。
+
+
+### 登录
+
+
+登录管理员账号。默认使用admidn\123执行登录，可以在 application.properties 中修改账号密码：
+
+```
+spring.security.user.name=admin
+spring.security.user.password=123
+```
+
+### 添加收件人
+
+
+浏览器访问<http://localhost:8080/recipients>添加收件人。
+
+### 配置 SkyWalking 网络钩子
+
+打开 SkyWalking 安装目录下的conﬁg文件夹下 alarm-settings.yml文件，找到 webhooks 这个配置项，进行修改
+
+```
+webhooks:
+- http://localhost:8080/webhook/skywalking
+```
+
+上述 `localhost:8080` 改为你实际的部署地址。
+
+
+## 持久化
+
+目前默认使用的H2内存数据库，应用重启后数据丢失。可以在 application.properties 中进行配置持久化的数据库，比如 MySQL、PostgreSQL 等。
 
 
 

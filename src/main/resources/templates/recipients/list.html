@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Webhook Email Sender</title>
+
+    <style>
+        table, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<h3 th:text="${recipientModel.title}">waylau</h3>
+<div>
+    <a href="/recipients/form.html" th:href="@{/recipients/form}">创建用户</a>
+</div>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${recipientModel.recipientList.size()} eq 0">
+        <td colspan="3">没有用户信息！</td>
+    </tr>
+    <tr th:each="recipient : ${recipientModel.recipientList}">
+        <td th:text="${recipient.id}"></td>
+        <td><a th:href="@{'/recipients/'+${recipient.id}}" th:text="${recipient.recipient}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>
