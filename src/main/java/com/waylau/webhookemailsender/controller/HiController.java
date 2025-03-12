@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2025/03/10 18:02
 **/
 @RestController
-@RequestMapping("/hi")
 public class HiController {
+@RequestMapping("/hi")
     @GetMapping("/webhookemailsender")
     public String hi() {
         return "Java Webhook Email Sender";

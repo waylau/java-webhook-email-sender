@@ -11,11 +11,14 @@
 * 配置灵活，支持多种 SMTP 服务器
 * 异步处理，提高性能和响应速度（todo）
 * 轻量，占用内存/存储低
+* 支持 Docker 部署
 
 ## Usage 使用方法
 
 
 ### 启动 `Java Webhook Email Sender`
+
+Java 原生启动方式：
 
 ```
 java -jar webhookemailsender-1.0.0.jar --spring.mail.username=your@gmail.com --spring.mail.password=your_password
@@ -23,6 +26,15 @@ java -jar webhookemailsender-1.0.0.jar --spring.mail.username=your@gmail.com --s
 
 其中，启动参数`your@gmail.com`、`your_password`改为你实际的发送者邮箱及密码。`spring.mail.username`和`spring.mail.password`也可以在项目的 application.properties 中进行配置。
 
+
+Docker 启动方式：
+
+
+```
+docker build --build-arg MAIL_USERNAME=your@gmail.com --build-arg MAIL_PASSWORD=your_password  java-webhook-email-sender:latest .
+
+docker run -p 8080:8080 -it java-webhook-email-sender:latest
+```
 
 ### 登录
 

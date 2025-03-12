@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.waylau</groupId>
-	<artifactId>webhookemailsender</artifactId>
+	<artifactId>javawebhookemailsender</artifactId>
 	<version>1.0.0</version>
-	<name>webhookemailsender</name>
+	<name>javawebhookemailsender</name>
 	<description>Java Webhook Email Sender</description>
 	<url/>
 	<licenses>
