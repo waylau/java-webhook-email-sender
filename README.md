@@ -21,7 +21,7 @@
 Java 原生启动方式：
 
 ```
-java -jar webhookemailsender-1.0.0.jar --spring.mail.username=your@gmail.com --spring.mail.password=your_password
+java -jar javawebhookemailsender-1.0.0.jar --spring.mail.username=your@gmail.com --spring.mail.password=your_password
 ```
 
 其中，启动参数`your@gmail.com`、`your_password`改为你实际的发送者邮箱及密码。`spring.mail.username`和`spring.mail.password`也可以在项目的 application.properties 中进行配置。
