@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,8 +38,11 @@ public class WebhookController {
                 int count = (int) mailRecipientRepository.count();
 
                 String[] recipientArray = new String[count];
-                for (int i = 0; i < count; i++) {
-                    recipientArray[i] = recipientList.iterator().next().getRecipient();
+                int i = 0;
+                Iterator<MailRecipient> iterator = recipientList.iterator();
+                while (iterator.hasNext()) {
+                    recipientArray[i] = iterator.next().getRecipient();
+                    i ++;
                 }
 
                 ObjectMapper mapper = new ObjectMapper();
@@ -50,8 +54,4 @@ public class WebhookController {
         }
     }
 
-    @GetMapping("/webhookemailsender")
-    public String hi() {
-        return "Java Webhook Email Sender";
-    }
 }
