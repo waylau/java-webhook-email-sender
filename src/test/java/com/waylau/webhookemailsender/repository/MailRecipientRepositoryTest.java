@@ -1,6 +1,7 @@
 package com.waylau.webhookemailsender.repository;
 
 import com.waylau.webhookemailsender.model.MailRecipient;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @version 2025/03/11 11:25
 **/
 @SpringBootTest
+@Transactional
 class MailRecipientRepositoryTest {
 
     private static final Logger log = LoggerFactory.getLogger(MailRecipientRepositoryTest.class);

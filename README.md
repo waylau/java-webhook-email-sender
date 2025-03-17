@@ -33,7 +33,7 @@ Docker 启动方式：
 ```
 docker build --build-arg MAIL_USERNAME=your@gmail.com --build-arg MAIL_PASSWORD=your_password  java-webhook-email-sender:latest .
 
-docker run -p 8080:8080 -it java-webhook-email-sender:latest
+docker run -p 8080:8080 -v /your/path/javawebhookemailsender.db:/javawebhookemailsender.db -it java-webhook-email-sender:latest
 ```
 
 ### 登录
@@ -65,7 +65,7 @@ webhooks:
 
 ## 持久化
 
-目前默认使用的H2内存数据库，应用重启后数据丢失。可以在 application.properties 中进行配置持久化的数据库，比如 MySQL、PostgreSQL 等。
+目前默认使用的SQLite数据库。可以在 application.properties 中进行配置持久化的数据库，比如 H2、MySQL、PostgreSQL 等。
 
 
 
