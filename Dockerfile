@@ -1,5 +1,5 @@
 # 基础镜像
-FROM 192.168.1.78:8084/library/openjdk:17
+FROM openjdk:17
 
 # 重命名jar包
 COPY target/javawebhookemailsender-1.0.0.jar app.jar
